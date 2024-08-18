@@ -1,0 +1,136 @@
+<%- include('layout/admin_header') %>
+<style>
+    .form-container {
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 20px;
+        margin-top: 120px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 60%; 
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-container h2 {
+        margin-top: 0;
+        color: #ff0015;
+        text-align: center; 
+    }
+    .form-group {
+        margin-bottom: 0.6em;
+        display: flex;
+        justify-content: center;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 0.4em;
+        color: #333;
+        width: 100%;
+    }
+    .form-group input,.form-group select,
+    .form-group textarea {
+        width: 80%; 
+        max-width: 300px;
+        padding: 0.5em;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 0.875em;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .form-group input[type="submit"] {
+        width: 80%; 
+        max-width: 300px;
+        background-color: #ff0015;
+        color: #fff;
+        border: none;
+        padding: 0.75em 1.5em;
+        cursor: pointer;
+        font-size: 0.875em; 
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        text-align: center; 
+        margin-left: auto;
+        margin-right: auto; 
+        display: block;
+    }
+    .form-group input[type="submit"]:hover {
+        background-color: #e60012;
+    }
+    @media (max-width: 600px) {
+        .form-container {
+            padding: 15px;
+            width: 90%; 
+        }
+        .form-group input,
+        .form-group textarea {
+            font-size: 0.75em;
+            width: 100%; 
+        }
+        .form-group input[type="submit"] {
+            font-size: 0.75em; 
+            padding: 0.5em 1em;
+            width: 100%;
+        }
+    }
+</style>
+<div class="form-container">
+    <h2>Update Donor Information</h2>
+    <form action="/admin/edit_donor/<%= donors._id %>?_method=PUT" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= donors.name %>" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="<%= donors.age %>" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" value="<%= donors.city %>" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender: </label>
+           <select name="gender" id="gender">
+            <option value="<%= donors.gender %>"><%= donors.gender %></option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+           </select>
+        </div>
+        <div class="form-group">
+            <label for="blood_type">Blood Type:</label>
+            <select id="bloodtype" name="blood_type" required>
+                <option value="<%= donors.blood_type %>"><%= donors.blood_type %></option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="weight">Weight:</label>
+            <input type="number" id="weight" name="weight" value="<%= donors.weight %>" required>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact" value="<%= donors.contact %>" required>
+        </div>
+        <div class="form-group">
+            <label for="test">Test:</label>
+            <select id="test" name="test" required>
+                <option value="<%= donors.test %>"><%= donors.test %></option>
+                <option value="Positive">Positive</option>
+                <option value="Negative">Negative</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Update Donor">
+        </div>
+    </form>
+</div>
+<%- include('layout/admin_footer') %>

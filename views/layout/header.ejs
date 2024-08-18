@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title><%= title %></title>
+    <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <style>
+        #networkError {
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,50%);
+            background-color: red;
+            color: white;
+            padding: 15px;
+            z-index: 2000;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            #networkError {
+                width: 100%;
+                border-radius: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                bottom: 0;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div id="networkError">Network Error 😭 : You are offline. Please check your internet connection.</div>
+        <div class="logo">
+            <a href="/" style="text-decoration: none; color: white;"><img src="/Images/logo.png" alt="Logo"></a>
+            <a href="/" style="text-decoration: none; color: white;">
+                <h3>Blood Buddy</h3>
+            </a>
+        </div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/add_donor"><i class="fa-solid fa-user-plus"></i> Donor</a></li>
+                <li><a href="/add_patient"><i class="fa-solid fa-bed-pulse"></i> Patient</a></li>
+                <li><a href="/chart"><i class="fa-solid fa-chart-bar"></i> Blood Chart</a></li>
+                <li><a href="/log_in"><i class="fa-solid fa-user-shield"></i> Receptionist</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <% if(message) { %>
+        <div id="alertMessage" class="alert alert-<%= message.type %> alert-dismissible fade show" role="alert"
+            style="width: auto; max-width: 300px; margin-right: 1em; margin-top: 4em; position: fixed; right: 0; top: 0; z-index: 100;">
+            <strong><%= message.message %></strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% } %>
+
+    <script>
+        function updateNetworkStatus() {
+            const networkError = document.getElementById('networkError');
+            if (!navigator.onLine) {
+                networkError.style.display = 'block';
+            } else {
+                networkError.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('offline', updateNetworkStatus);
+        window.addEventListener('online', updateNetworkStatus);
+        updateNetworkStatus();
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<%- include('layout/admin_header') %>
+<link rel="stylesheet" href="/css/blood_donation.css">
+
+<section class="table-section">
+    <div class="table-responsive">
+    <table class="donation-table" id="history-table">
+        <thead>
+            <tr>
+                <th>Sr.#</th>
+                <th>Name</th>
+                <th>Disease</th>
+                <th>Age</th>
+                <th>Blood Group</th>
+                <th>Units</th>
+                <th>Contact</th>
+                <th>Request Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% rejectedRequests.forEach((request, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= request.name %></td>
+                    <td><%= request.disease %></td>
+                    <td><%= request.age %></td>
+                    <td><%= request.blood_type %></td>
+                    <td><%= request.units %></td>
+                    <td><%= request.contact %></td>
+                    <td><%= request.request_date %></td>
+                    <td><%= request.status %></td>
+                </tr>
+            <% }) %>
+            <% approvedRequests.forEach((request, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= request.name %></td>
+                    <td><%= request.disease %></td>
+                    <td><%= request.age %></td>
+                    <td><%= request.blood_type %></td>
+                    <td><%= request.units %></td>
+                    <td><%= request.contact %></td>
+                    <td><%= request.request_date %></td>
+                    <td><%= request.status %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<%- include('layout/admin_footer') %>

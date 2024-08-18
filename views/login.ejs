@@ -1,0 +1,51 @@
+<%- include('layout/header') %>
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="login-container" style="margin-top: 10px;">
+    <div class="login-form">
+        <h2>Login</h2>
+        <form id="loginForm" onsubmit="return validateForm()" method="post" action="/log_in">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+        <div class="switch-page">
+            <p>Don't have an account? <a href="/sign_up">Create Account</a></p>
+            <p>Forgot password ? <a href="/forgot_password">Forget Password</a></p>
+        </div>
+        <div id="errorMessage" class="error-message"></div>
+    </div>
+</div>
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>About</h5>
+                <p>Blood Buddy is dedicated to connecting blood donors with those in need, ensuring a reliable supply of blood for medical emergencies.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Contact</h5>
+                <p>Email: <a href="mailto:najeebpatoana007@gmail.com" class="text-white">najeebpatoana007@gmail.com</a></p>
+                <p>Phone: +92 3430694964</p>
+                <p>Address:  Blood Bank, Jhang</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Follow Us</h5>
+                <a href="https://github.com/Najeeb-Patoana" target="_blank" class="text-white me-3">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/najeeb-ullah-khan-7bab7625a/" target="_blank" class="text-white me-3">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <p class="mb-0">&copy; 2024 Najeeb Ullah Khan</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<%- include('layout/footer') %>

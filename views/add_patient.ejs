@@ -1,0 +1,82 @@
+<%- include('layout/header') %>
+<link rel="stylesheet" href="/css/patient_form.css">
+<main>
+    <div class="main-content">
+        <div class="container">
+            <h2>Patient Information</h2>
+            <form id="patientForm" action="/add_patient" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <span id="nameError" class="error"></span>
+                </div>               
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="bloodtype">Blood Type:</label>
+                    <select id="bloodtype" name="blood_type" required>
+                        <option value="">Select Blood Type</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="units">Units Required:</label>
+                    <input type="number" id="units" name="units" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact:</label>
+                    <input type="text" id="contact" name="contact" pattern="\d{11}" required>
+                </div>
+                <div class="form-group">
+                    <label for="disease">Disease:</label>
+                    <textarea id="disease" name="disease"></textarea>
+                </div>
+                <div class="form-group form-submit">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<script>
+    document.getElementById('patientForm').addEventListener('submit', function(event) {
+        const form = event.target;
+        const age = parseInt(form.age.value);
+        const units = parseInt(form.units.value);
+        const contact = form.contact.value;
+
+        if (age < 0) {
+            alert("Age must be a positive number.");
+            event.preventDefault();
+        }
+
+        if (units < 1) {
+            alert("Units required must be at least 1.");
+            event.preventDefault();
+        }
+
+        if (!/^\d{11}$/.test(contact)) {
+            alert("Contact must be a 10-digit number.");
+            event.preventDefault();
+        }
+    });
+</script>
+<%- include('layout/footer') %>

@@ -1,0 +1,69 @@
+<%- include('layout/header') %>
+<link rel="stylesheet" href="/css/signup.css">
+
+<div class="signup-container">
+    <div class="signup-form">
+        <h2>Create Account</h2>
+        <form id="signupForm" method="post" action="/sign_up">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="switch-page">
+            <p>Already have an account? <a href="/log_in">Login</a></p>
+        </div>
+    </div>
+</div>
+<footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <h5>About</h5>
+                <p>Blood Buddy is dedicated to connecting blood donors with those in need, ensuring a reliable supply of blood for medical emergencies.</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Contact</h5>
+                <p>Email: <a href="mailto:najeebpatoana007@gmail.com" class="text-white">najeebpatoana007@gmail.com</a></p>
+                <p>Phone: +92 3430694964</p>
+                <p>Address:  Blood Bank, Jhang</p>
+            </div>
+            <div class="col-md-4 mb-3">
+                <h5>Follow Us</h5>
+                <a href="https://github.com/Najeeb-Patoana" target="_blank" class="text-white me-3">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/najeeb-ullah-khan-7bab7625a/" target="_blank" class="text-white me-3">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <p class="mb-0">&copy; 2024 Najeeb Ullah Khan</p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        if (password.length < 6) {
+            alert("Password must be at least 8 characters long.");
+            event.preventDefault();
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+        }
+    });
+</script>
+
+<%- include('layout/footer') %>

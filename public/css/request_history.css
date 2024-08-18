@@ -1,0 +1,26 @@
+        .table-section {
+            margin-top: 5em;
+        }
+
+        .request-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .request-table th,
+        .request-table td {
+            padding: 1em;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .request-table th {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .request-table td {
+            color: #333;
+        }

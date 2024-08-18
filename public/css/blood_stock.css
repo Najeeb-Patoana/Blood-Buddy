@@ -1,0 +1,66 @@
+
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 5em;
+}
+
+.card {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(25% - 1em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ff0019;
+}
+
+.card i {
+    margin-left: 0.5em;
+    color: #ff0019;
+}
+
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.summary-card {
+    background-color: #fff;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1 1 calc(25% - 1em);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.summary-card h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.summary-card p {
+    margin: 0;
+    font-size: 1.5em;
+    color: #ff0019;
+}
+
+.summary-card i {
+    margin-right: 0.5em;
+    color: #007bff;
+}

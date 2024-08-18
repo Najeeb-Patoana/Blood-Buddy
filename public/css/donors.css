@@ -1,0 +1,25 @@
+.table-section {
+    margin-top: 5em;
+}
+.donation-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.donation-table th,
+.donation-table td {
+    padding: 0.4em;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.donation-table th {
+    background-color: #17a2b8;
+    color: #fff;
+}
+
+.donation-table td {
+    color: #333;
+}

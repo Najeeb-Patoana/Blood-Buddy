@@ -1,0 +1,37 @@
+{
+  "name": "blood-buddy",
+  "version": "1.0.0",
+  "description": "A web application for managing blood donations.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bloodbuddy": "nodemon main.js"
+  },
+  "keywords": [
+    "blood",
+    "donation",
+    "management",
+    "nodejs",
+    "express"
+  ],
+  "author": "Najeeb Patoana",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "crypto": "^1.0.1",
+    "datatables.net": "^2.0.8",
+    "datatables.net-dt": "^2.0.8",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "method-override": "^3.0.0",
+    "moment": "^2.30.1",
+    "mongoose": "^8.4.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.3",
+    "vercel": "^32.3.0"
+  }
+}

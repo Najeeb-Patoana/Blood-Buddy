@@ -1,0 +1,29 @@
+<%- include('layout/admin_header') %>
+<link rel="stylesheet" href="/css/blood_stock.css">
+<section class="stats">
+    <% bloodStocks.forEach(stock => { %>
+        <div class="card">
+            <h2><%= stock.blood_type %> <i class="fas fa-tint"></i></h2>
+            <p><%= stock.units %></p>
+        </div>
+    <% }) %>
+</section>
+<section class="summary">
+    <div class="summary-card">
+        <h3>Total Donors</h3>
+        <p><i class="fas fa-users"></i> <%= totalDonors %></p>
+    </div>
+    <div class="summary-card">
+        <h3>Total Requests</h3>
+        <p><i class="fas fa-clipboard-list"></i> <%= totalRequests %></p>
+    </div>
+    <div class="summary-card">
+        <h3>Approved Requests</h3>
+        <p><i class="fas fa-check-circle"></i> <%= approvedRequests %></p>
+    </div>
+    <div class="summary-card">
+        <h3>Total Blood Unit </h3>
+        <p><i class="fas fa-tint"></i> <%= totalBloodUnits %></p>
+    </div>
+</section>
+<%- include('layout/admin_footer') %>

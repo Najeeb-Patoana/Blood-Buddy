@@ -1,0 +1,54 @@
+<%- include('layout/admin_header') %>
+<link rel="stylesheet" href="/css/donors.css">
+
+<section class="table-section">
+    <div class="table-responsive">
+    <table class="donation-table" id="donor_table">
+        <thead>
+            <tr>
+                <th>Sr.#</th>
+                <th>Name</th>
+                <th>Test</th>
+                <th>Age</th>
+                <th>City</th>
+                <th>Blood</th>
+                <th>Gender</th>
+                <th>Weight</th>
+                <th>Contact</th>
+                <th>Donation Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+                    <% donors.forEach((row,index)=>{ %>
+                <tr >
+                    <td><%= index+1 %></td>
+                    <td><%= row.name %></td>
+                    <td><%= row.test %></td>
+                    <td><%= row.age %></td>
+                    <td><%= row.city %></td>
+                    <td><%= row.blood_type %></td>
+                    <td><%= row.gender %></td>
+                    <td><%= row.weight %></td>
+                    <td><%= row.contact %></td>
+                    <td><%= row.donation_date %></td>
+                        <td>
+                            <a href="/admin/edit_donor/<%= row._id %>" class="text-success "> <i class="fas fa-edit fa-lg mx-2 " style="color: #28a745; margin-right: 0.6em;" > </i></a>
+                          
+                            <form id="deleteDonorForm_<%= row._id %>" action="/admin/delete_donor/<%= row._id %>?_method=DELETE" method="POST" style="display: none;">
+                                <input type="hidden" name="_method" value="DELETE">
+                            </form>
+                            
+                            <a href="#" onclick="event.preventDefault(); document.getElementById('deleteDonorForm_<%= row._id %>').submit();" class="text-danger">
+                                <i class="fas fa-trash fa-lg mx-1" style="color:#F32013;"></i></a>                     
+                        </td>
+                </tr>
+
+           <%   }) %>
+        </tbody>
+    </table>
+</div>
+</section>
+
+
+<%- include('layout/admin_footer') %>

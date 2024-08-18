@@ -1,0 +1,57 @@
+<%- include('layout/admin_header') %>
+<!-- <link rel="stylesheet" href="/css/blood_requests.css"> -->
+<link rel="stylesheet" href="/css/blood_donation.css">
+
+<section class="table-section">
+    <div class="table-responsive">
+    <table class="donation-table" id="request-table">
+        <thead>
+            <tr>
+                <th>Sr.#</th>
+                <th>Name</th>
+                <th>Disease</th>
+                <th>Age</th>
+                <th>Blood Group</th>
+                <th>Units</th>
+                <th>Contact</th>
+                <th>Request Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% patients.forEach((row, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <td><%= row.name %></td>
+                    <td><%= row.disease %></td>
+                    <td><%= row.age %></td>
+                    <td><%= row.blood_type %></td>
+                    <td><%= row.units %></td>
+                    <td><%= row.contact %></td>
+                    <td><%= row.request_date %></td>
+                    <td><%= row.status %></td>
+                    <td>
+                        <% if (row.status === 'Pending') { %>
+                            <form action="/admin/approve_request?_method=PUT" method="POST" style="display:inline;">
+                                <input type="hidden" name="patientId" value="<%= row._id %>">
+                                <input type="hidden" name="status" value="Approved">
+                                <button type="submit" class="buton"><i class="fa-solid fa-check" style="color: green; background-color: rgba(0, 255, 0, 0.075); padding: 3px;"></i></button>
+                            </form>
+                            <form action="/admin/reject_request?_method=PUT" method="POST" style="display:inline;">
+                                <input type="hidden" name="patientId" value="<%= row._id %>">
+                                <input type="hidden" name="status" value="Rejected">
+                                <button type="submit" class="buton"><i class="fa-solid fa-xmark" style="color: red; background-color: rgba(255, 0, 0, 0.116); padding: 3px;"></i></button>
+                            </form>
+                        <% } else { %>
+                            <button disabled class="buton"><i class="fa-solid fa-check" style="color: gray; background-color: rgba(0, 0, 0, 0.075); padding: 3px;"></i></button>
+                            <button disabled class="buton"><i class="fa-solid fa-xmark" style="color: gray; background-color: rgba(0, 0, 0, 0.116); padding: 3px;"></i></button>
+                        <% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+    </div>
+</section>
+<%- include('layout/admin_footer') %>

@@ -1,0 +1,48 @@
+<script>
+    var alertMessage = document.getElementById('alertMessage');
+    if (alertMessage) {
+      setTimeout(function () {
+        alertMessage.style.display = 'none';
+      }, 3000);
+    } 
+
+    function toggleMenu() {
+        const nav = document.querySelector('nav ul');
+        nav.classList.toggle('active');
+    }
+
+    let indexDesktop = 0;
+    let indexMobile = 0;
+
+    const desktopImages = document.querySelectorAll('.carousel-desktop img');
+    const mobileImages = document.querySelectorAll('.carousel-mobile img');
+
+    const totalDesktopImages = desktopImages.length;
+    const totalMobileImages = mobileImages.length;
+
+    function showNextImageDesktop() {
+        const desktopCarousel = document.querySelector('.carousel-desktop');
+        indexDesktop = (indexDesktop + 1) % totalDesktopImages;
+        const offsetDesktop = -indexDesktop * 100;
+        desktopCarousel.style.transform = `translateX(${offsetDesktop}%)`;
+    }
+
+    function showNextImageMobile() {
+        const mobileCarousel = document.querySelector('.carousel-mobile');
+        indexMobile = (indexMobile + 1) % totalMobileImages;
+        const offsetMobile = -indexMobile * 100;
+        mobileCarousel.style.transform = `translateX(${offsetMobile}%)`;
+    }
+
+    setInterval(showNextImageDesktop, 3000);
+    setInterval(showNextImageMobile, 3000);
+
+    window.addEventListener('resize', function() {
+        const nav = document.querySelector('nav ul');
+        if (window.innerWidth > 768) {
+            nav.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
