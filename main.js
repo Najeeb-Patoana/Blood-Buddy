@@ -41,6 +41,11 @@ app.use("",require('./routes/routes'))
 
 app.use("/admin",require('./routes/admin_routes'))
 
+app.use((req, res, next) => {
+    res.status(404).render('404',{title:"404 Page not found"});
+});
+
+
 
 app.get('/log_out', (req, res) => {
     req.session.destroy(err => {
