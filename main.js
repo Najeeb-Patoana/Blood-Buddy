@@ -41,10 +41,6 @@ app.use("",require('./routes/routes'))
 
 app.use("/admin",require('./routes/admin_routes'))
 
-app.use((req, res, next) => {
-    res.status(404).render('404',{title:"404 Page not found"});
-});
-
 
 
 app.get('/log_out', (req, res) => {
@@ -57,6 +53,11 @@ app.get('/log_out', (req, res) => {
         res.redirect('/log_in'); 
         });
 });
+
+app.use((req, res, next) => {
+    res.status(404).render('404',{title:"404 Page not found"});
+});
+
 
 app.listen(PORT,()=>{
     console.log(`Server is running ♥ on http://localhost:${PORT} `);
