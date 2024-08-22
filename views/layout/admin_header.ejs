@@ -13,9 +13,39 @@
     <link href="https://cdn.datatables.net/v/bs5/dt-2.0.8/datatables.min.css" rel="stylesheet">   
     <link rel="stylesheet" href="/css/admin_home.css">    
     <link rel="icon" type="image/x-icon" href="/Images/favicon.ico">
+    <style>
+        #networkError {
+            display: none;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%,50%);
+            background-color: red;
+            color: white;
+            padding: 15px;
+            z-index: 2000;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            box-shadow: -2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            #networkError {
+                width: 100%;
+                border-radius: 0;
+                left: 0;
+                right: 0;
+                top: auto;
+                bottom: 0;
+                transform: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div id="networkError">Network Error 😭 : You are offline. Please check your internet connection.</div>
     <div class="container-fluid">
         <div class="row">
             <aside class="sidebar" id="sidebar">
@@ -65,3 +95,19 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <% } %>                
+                <script>
+                    function updateNetworkStatus() {
+                        const networkError = document.getElementById('networkError');
+                        if (!navigator.onLine) {
+                            networkError.style.display = 'block';
+                        } else {
+                            networkError.style.display = 'none';
+                        }
+                    }
+            
+                    window.addEventListener('offline', updateNetworkStatus);
+                    window.addEventListener('online', updateNetworkStatus);
+                    updateNetworkStatus();
+                </script>
+            </body>
+            </html>
