@@ -153,7 +153,8 @@ router.post('/forgot_password', async (req, res) => {
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            background-color: #ffffff;
+            color: #fff;
+            background-color: #123;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
