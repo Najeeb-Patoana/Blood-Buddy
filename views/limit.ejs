@@ -1,0 +1,62 @@
+<%- include('layout/header', { message: message }) %>
+<style>
+    body {
+        background: #121212;
+        color: #e0e0e0;
+        font-family: Arial, sans-serif;
+    }
+
+    .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+        padding: 20px;
+        background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+        background-size: cover;
+        border-radius: 10px;
+    }
+
+    .error-container h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .error-container p {
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+    }
+
+    .error-container a {
+        font-size: 1rem;
+        color: #1e90ff;
+        text-decoration: none;
+        border: 2px solid #1e90ff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        background-color: transparent;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .error-container a:hover {
+        background-color: #1e90ff;
+        color: #ffffff;
+    }
+
+    .emoji {
+        font-size: 4rem;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="error-container">
+    <div class="emoji">😡😈</div>
+    <h1>Too Many Requests</h1>
+    <p>You've made too many requests in a short period of time.</p>
+    <p>Please try again later.</p>
+    <a href="/">Return to Home</a>
+</div>
+
+<%- include('layout/footer') %>

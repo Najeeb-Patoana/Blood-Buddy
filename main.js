@@ -5,6 +5,12 @@ const path = require('path');
 const session=require('express-session');
 const app=express();
 var DataTable = require( 'datatables.net' );
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
+
+app.use(helmet({ contentSecurityPolicy: false })); // disable CSP
+app.use(mongoSanitize());
 
 const methodOverride = require('method-override');
 app.use(methodOverride('_method'));
@@ -18,7 +24,28 @@ try {
 }
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: '1d' })); // it will serve static files (e.g., CSS, JS) from disk and cache them in the client’s browser for a day
+
+//to prvent ddos attack 
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 50, // limit each IP to 50 requests per window
+    handler: (req, res) => {
+      res.status(429).render('limit', {
+        title: 'Rate Limit Exceeded',
+        message: {
+          type: 'warning',
+          message: 'Too many requests. Please try again later.'
+        }
+      });
+    }
+  });
+  
+
+app.use(limiter);
+
+
 
 app.use(session({
     secret:'Riphah',
