@@ -17,6 +17,9 @@
     h1 {
         color: #ec1b08;
     }
+    .table-responsive {
+        overflow-x: auto;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
@@ -46,149 +49,165 @@
             padding: 15px;
         }
     }
-    footer{
-        position: absolute;
-        bottom: 0%;
+    footer {
+        background-color: #222;
+        color: white;
+        padding: 20px;
         width: 100%;
+        text-align: center;
+        margin-top: auto;
+    }
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .footer-container div {
+        flex: 1 1 30%;
+        margin: 10px;
     }
 </style>
-<section class="container mt-5">
-    <h1>Blood Type Compatibility</h1>
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>O+</th>
-                <th>O-</th>
-                <th>A+</th>
-                <th>A-</th>
-                <th>B+</th>
-                <th>B-</th>
-                <th>AB+</th>
-                <th>AB-</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>O+</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>O-</th>
-                <td></td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                
-            </tr>
-            <tr>
-                <th>A+</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>A-</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td>✔️</td>
-                <td>✔️</td>
-            </tr>
-            <tr>
-                <th>B+</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th>B-</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-            </tr>
-            <tr>
-                <th>AB+</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td>✔️</td>
-            </tr>
-            <tr>
-                <th>AB-</th>
-                <td>✔️</td>
-                <td>✔️</td>
-                <td></td>
-                <td>✔️</td>
-                <td></td>
-                <td>✔️</td>
-                <td></td>
-                <td>✔️</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-<footer class="bg-dark text-white text-center py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 mb-3">
-                <h5>About</h5>
-                <p>Blood Buddy is dedicated to connecting blood donors with those in need, ensuring a reliable supply of blood for medical emergencies.</p>
+<div class="d-flex flex-column min-vh-100">
+    <section class="container mt-5">
+        <h1>Blood Type Compatibility</h1>
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>O+</th>
+                        <th>O-</th>
+                        <th>A+</th>
+                        <th>A-</th>
+                        <th>B+</th>
+                        <th>B-</th>
+                        <th>AB+</th>
+                        <th>AB-</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>O+</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>O-</th>
+                        <td></td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>A+</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>A-</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <th>B+</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>B-</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <th>AB+</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                    </tr>
+                    <tr>
+                        <th>AB-</th>
+                        <td>✔️</td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td>✔️</td>
+                        <td></td>
+                        <td>✔️</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="footer-container">
+                <div>
+                    <h5>About</h5>
+                    <p>Blood Buddy is dedicated to connecting blood donors with those in need, ensuring a reliable supply of blood for medical emergencies.</p>
+                </div>
+                <div>
+                    <h5>Contact</h5>
+                    <p>Email: <a href="mailto:najeebpatoana007@gmail.com" class="text-white" style="text-decoration: none;">najeebpatoana007@gmail.com</a></p>
+                    <p>Phone: +92 3430694964</p>
+                    <p>Address: Blood Bank, Jhang</p>
+                </div>
+                <div>
+                    <h5>Follow Us</h5>
+                    <a href="https://github.com/Najeeb-Patoana" target="_blank" class="text-white me-3" style="text-decoration: none;">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/najeeb-ullah-khan-7bab7625a/" target="_blank" class="text-white" style="text-decoration: none;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
             </div>
-            <div class="col-md-4 mb-3">
-                <h5>Contact</h5>
-                <p>Email: <a href="mailto:najeebpatoana007@gmail.com" class="text-white" style="text-decoration: none;">najeebpatoana007@gmail.com</a></p>
-                <p>Phone: +92 3430694964</p>
-                <p>Address:  Blood Bank, Jhang</p>
-            </div>
-            <div class="col-md-4 mb-3">
-                <h5>Follow Us</h5>
-                <a href="https://github.com/Najeeb-Patoana" target="_blank" class="text-white me-3" style="text-decoration: none;">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://www.linkedin.com/in/najeeb-ullah-khan-7bab7625a/" target="_blank" class="text-white me-3" style="text-decoration: none;">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <p class="mb-0">&copy; 2024 Najeeb Ullah Khan</p>
+                </div>
             </div>
         </div>
-        <div class="row mt-3">
-            <div class="col-md-12">
-                <p class="mb-0">&copy; 2024 Najeeb Ullah Khan</p>
-            </div>
-        </div>
-    </div>
-</footer>
+    </footer>
+</div>
 <%- include('layout/footer') %>
