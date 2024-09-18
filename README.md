@@ -34,7 +34,7 @@ npm install
 
     helmet: 7.1.0 - Security enhancement for HTTP headers.
 
-    And many more...
+    ...and many more to ensure security, efficiency, and performance.
 
 ```
 
