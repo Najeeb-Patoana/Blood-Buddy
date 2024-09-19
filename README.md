@@ -10,7 +10,7 @@ To install the required dependencies, use the node package manager [npm](https:/
 npm install
 ```
 
-## 📦 Packages Used in Project
+## 📂 Packages Used in Project
 
 ```javascript
 
@@ -34,11 +34,11 @@ npm install
 
     helmet: 7.1.0 - Security enhancement for HTTP headers.
 
-    ...and many more to ensure security, efficiency, and performance.
+    ...and many more to ensure security ⚙️, efficiency 🔥, and performance 🚀.
 
 ```
 
-## 🚦 Usage
+## 👨‍💻 Usage
 
 #### To start Blood Buddy, use the following command:
 
@@ -59,7 +59,7 @@ to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## 📜 License
+## 🔐 License
 
 Patoana Sial 
 
