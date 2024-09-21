@@ -6,7 +6,7 @@ const Signup=require('../models/signup')
 const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 require('dotenv').config();
-const axios = require('axios');
+
 router.get('/', async (req, res) => {
     try {
         res.render('index', {title: "Home Page",});
@@ -33,21 +33,7 @@ router.get('/log_in',(req,res)=>{
 
 router.post('/log_in', async (req, res) => {
     const { email, password } = req.body;
-    const recaptchaToken = req.body['g-recaptcha-response'];
-    const secretKey = process.env.RECAPTCHA_SECRET_KEY;
-
-    const verificationUrl = `https://www.google.com/recaptcha/api/siteverify?secret=${secretKey}&response=${recaptchaToken}`;
-
     try {
-        const recaptchaResponse = await axios.post(verificationUrl);
-
-        if (!recaptchaResponse.data.success) {
-            req.session.message = {
-                type: 'danger',
-                message: "CAPTCHA verification failed. Please try again."
-            };
-            return res.redirect('/log_in');
-        }
         const user = await Signup.findOne({ email });
         if (!user) {
             req.session.message = {
@@ -64,7 +50,7 @@ router.post('/log_in', async (req, res) => {
                 };
                 res.redirect('/log_in');
             } else {
-                req.session.user = user; // Store user information in session
+                req.session.user = user; // You can store more user information in the session if needed
                 req.session.message = {
                     type: 'success',
                     message: "Login successfully"
@@ -73,11 +59,9 @@ router.post('/log_in', async (req, res) => {
             }
         }
     } catch (error) {
-        console.error("Error during login:", error);
         res.status(500).json({ message: error.message, type: 'danger' });
     }
 });
-
 
 
 router.get('/sign_up',(req,res)=>{

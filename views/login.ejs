@@ -9,9 +9,6 @@
             <input type="email" id="email" name="email" required>
             <label for="password">Password</label>
             <input type="password" id="password" name="password" required>
-            
-            <!-- Google reCAPTCHA v2 -->
-    <div class="g-recaptcha" data-sitekey="<%= process.env.RECAPTCHA_SITE_KEY %>"></div>           
             <button type="submit">Login</button>
         </form>
         <div class="switch-page">
@@ -52,6 +49,3 @@
     </div>
 </footer>
 <%- include('layout/footer') %>
-
-<!-- reCAPTCHA API script -->
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
