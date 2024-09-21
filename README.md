@@ -34,6 +34,8 @@ npm install
 
     helmet: 7.1.0 - Security enhancement for HTTP headers.
 
+    axios : 1.7.1 - For reCaptcha 
+
     ...and many more to ensure security ⚙️, efficiency 🔥, and performance 🚀.
 
 ```
