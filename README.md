@@ -1,6 +1,6 @@
 # 🩸 Blood Buddy
 
-Blood Buddy is a web application developed by Najeeb Ullah Khan from Riphah International University,Lahore Pakistan.It is designed to manage donors, patients, and blood inventory efficiently.
+Blood Buddy is a web application.It is designed to manage donors, patients, and blood inventory efficiently.
 
 ## 🛠️ Installation
 
